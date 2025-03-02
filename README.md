@@ -25,5 +25,10 @@ https://dataminingproject12345.streamlit.app/
 
 ---
 
+## Libraly install Command
+pip install streamlit numpy joblib scikit-learn pandas
+
+---
+
 ## 🏃 Running Command
 streamlit run app.py
