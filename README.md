@@ -21,15 +21,7 @@ https://dataminingproject12345.streamlit.app/
 ---
 ## โครงสร้างไฟล์โปรเจกต์
 
-📦 CVD_Prediction
-├── 📜 app.py                # หน้าแรกของแอป (ฟอร์มกรอกข้อมูล)
-├── 📁 pages                 # หน้าผลลัพธ์
-│   ├── 📜 Result.py         # แสดงผลลัพธ์การพยากรณ์
-│   ├── 📜 Loading.py        # (อาจใช้เป็นหน้าโหลดข้อมูล)
-├── 📜 requirements.txt      # รายการ dependencies
-├── 📜 cvd_model.pkl         # โมเดล Machine Learning 
-├── 📜 cvd_scaler.pkl        # Scaler สำหรับปรับค่าข้อมูล
-└── 📜 README.md             # คำอธิบายโปรเจกต์
+![image](https://github.com/user-attachments/assets/63615981-e565-427e-a76f-3c8813350744)
 
 ---
 
