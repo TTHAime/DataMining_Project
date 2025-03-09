@@ -28,31 +28,14 @@ st.markdown("""
         text-align: center;
         height: 100vh;
     }
-    .content-box {
-        background: white;
-        padding: 0px;
-        border-radius: 0px;
-        box-shadow: 0px 0px 0px rgba(255, 215, 0, 0.2);
-        max-width: 0px;
-        margin: auto;
-        text-align: center;
-    }
-    .content-box h1 {
-        font-size: 36px;
-        font-weight: bold;
-        color: #FBC02D !important;
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    }
-    .content-box h2, .content-box h3 {
-        color: #FBC02D !important;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
+    
     label, p {
         font-size: 18px !important;
         font-weight: bold;
         color: #1e3c72;
     }
-    .stSelectbox, .stRadio, .stTextInput {
+    
+    .stSelectbox, .stRadio, .stTextInput  {
         background: #f5f5f5 !important;
         color: #000000 !important;
         font-size: 18px !important;
@@ -60,24 +43,13 @@ st.markdown("""
         padding: 10px;
         border: 2px solid #d4af37;
     }
-    .stButton>button {
-        background: linear-gradient(to right, #4CAF50, #2E7D32); 
-        color: #fff;
-        box-shadow: 0 4px 15px rgba(0, 255, 0, 0.4);
-        border-radius: 8px;
-        padding: 12px;
-        transition: transform 0.3s ease;
-}
-
-    .stButton>button:hover {
-        transform: scale(1.05); 
-        background: linear-gradient(to right, #81C784, #2E7D32);
-}
+    
+   
 </style>
 """, unsafe_allow_html=True)
 
 # ===== ส่วน UI =====
-st.markdown('<div class="content-box">', unsafe_allow_html=True)
+
 st.title("💙 Cardiovascular Disease Risk Prediction")
 st.subheader("🔍 Fill in the details to predict your CVD risk")
 
@@ -97,7 +69,7 @@ with st.form(key='prediction_form'):
 
     submit_button = st.form_submit_button("🔍 Predict")
 
-st.markdown('</div>', unsafe_allow_html=True)
+
 
 # ===== การประมวลผลข้อมูล =====
 if submit_button:
@@ -120,4 +92,4 @@ if submit_button:
             exercise_value, arthritis_value
         ]
 
-        st.switch_page("pages/Loading.py")
+        st.switch_page("pages/Result.py")
