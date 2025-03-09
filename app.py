@@ -22,10 +22,11 @@ diabetes_map = {'No': 0, 'No, pre-diabetes or borderline diabetes': 0,
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(to right, #397D54, #7BAE6A);
-        color: #f8f8f8;
+        background: linear-gradient(135deg, #0f3d3e, #1b6b6a, #6ebf8b);
+        color: #ffffff;
         font-family: 'Arial', sans-serif;
         text-align: center;
+        height: 100vh;
     }
     .content-box {
         background: white;
@@ -60,21 +61,18 @@ st.markdown("""
         border: 2px solid #d4af37;
     }
     .stButton>button {
-        width: 100%;
-        background: linear-gradient(to right, #1e3c72, #0f2c61);
-        color: white;
-        padding: 15px;
-        font-size: 20px;
-        border: none;
+        background: linear-gradient(to right, #4CAF50, #2E7D32); 
+        color: #fff;
+        box-shadow: 0 4px 15px rgba(0, 255, 0, 0.4);
         border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    }
+        padding: 12px;
+        transition: transform 0.3s ease;
+}
+
     .stButton>button:hover {
-        background: linear-gradient(to right, #d4af37, #b8860b); /* ทองหรูหรา */
-        transform: scale(1.05);
-    }
+        transform: scale(1.05); 
+        background: linear-gradient(to right, #81C784, #2E7D32);
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -84,13 +82,18 @@ st.title("💙 Cardiovascular Disease Risk Prediction")
 st.subheader("🔍 Fill in the details to predict your CVD risk")
 
 with st.form(key='prediction_form'):
-    gender = st.radio("👤 Gender", [" Male", " Female"], index=None)
-    general_health = st.selectbox("📋 General Health", list(general_health_map.keys()), index=None)
-    age_category = st.selectbox("🎂 Age Category", list(age_category_map.keys()), index=None)
-    diabetes = st.selectbox("🩸 Diabetes?", list(diabetes_map.keys()), index=None)
-    smoking = st.selectbox("🚬 Do you smoke?", ["Yes", "No"], index=None)
-    exercise = st.selectbox("🏋️‍♂️ Do you exercise?", ["Yes", "No"], index=None)
-    arthritis = st.selectbox("🦴 Arthritis?", ["Yes", "No"], index=None)
+    col1, col2 = st.columns(2)
+    with col1:
+        gender = st.radio("👤 Gender", [" Male", " Female"], index=None)
+        general_health = st.selectbox("📋 General Health", list(general_health_map.keys()), index=None)
+        age_category = st.selectbox("🎂 Age Category", list(age_category_map.keys()), index=None)
+        exercise = st.selectbox("🏋️‍♂️ Do you exercise?", ["Yes", "No"], index=None)
+        
+    with col2:
+
+        diabetes = st.selectbox("🩸 Diabetes?", list(diabetes_map.keys()), index=None)
+        smoking = st.selectbox("🚬 Do you smoke?", ["Yes", "No"], index=None)
+        arthritis = st.selectbox("🦴 Arthritis?", ["Yes", "No"], index=None)
 
     submit_button = st.form_submit_button("🔍 Predict")
 
