@@ -1,0 +1,10 @@
+{
+    "sex_male_value" : "0"  ,
+    "sex_female_value": "1" ,
+    "general_health": "1",
+    "age_category": "1",
+    "exercise": "1",
+    "diabetes": "1",
+    "smoking": "1",
+    "arthritis": "1"
+}

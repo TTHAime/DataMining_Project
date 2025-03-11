@@ -2,6 +2,7 @@ import streamlit as st
 import joblib
 import os
 
+
 st.set_page_config(page_title="CVD Prediction", layout="wide")
 
 if not os.path.exists("cvd_model.pkl") or not os.path.exists("cvd_scaler.pkl"):
@@ -33,6 +34,7 @@ st.markdown("""
         font-size: 18px !important;
         font-weight: bold;
         color: #1e3c72;
+      
     }
     
     .stSelectbox, .stRadio, .stTextInput  {
@@ -44,6 +46,39 @@ st.markdown("""
         border: 2px solid #d4af37;
     }
     
+    .stFormSubmitButton>button {
+            font-size:40px;
+            background: #f5f5f5 !important;
+            color: black;
+            margin: 0 auto;
+            height: 50px;
+            p {
+                font-size: 40px;
+            }
+        }
+    .stFormSubmitButton>button:hover {
+            transform: scale(1.05);
+    }
+    
+    .stFormSubmitButton>button:active {
+            transform: scale(0.98);
+    }
+    
+    .stAlert {
+            background-color: #fff3cd !important;
+            border-left: 5px solid #ffcc00 !important;
+            color: #856404 !important;
+            font-size: 18px !important;
+            padding: 20px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+    @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+    }
    
 </style>
 """, unsafe_allow_html=True)
@@ -53,7 +88,7 @@ st.markdown("""
 st.title("💙 Cardiovascular Disease Risk Prediction")
 st.subheader("🔍 Fill in the details to predict your CVD risk")
 
-with st.form(key='prediction_form'):
+with st.form("prediction_form"):
     col1, col2 = st.columns(2)
     with col1:
         gender = st.radio("👤 Gender", [" Male", " Female"], index=None)
