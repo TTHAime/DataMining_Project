@@ -1,7 +1,7 @@
 # DataMining_Project
 
 # 🫀 CVD Prediction Web App
-https://dataminingproject12345.streamlit.app/
+https://datamining-g9.streamlit.app/
 
 ### 🔍 ทำนายความเสี่ยงของโรคหัวใจและหลอดเลือดด้วย Machine Learning
 
@@ -17,16 +17,25 @@ https://dataminingproject12345.streamlit.app/
 - **Joblib**  - โหลดโมเดลที่ถูกฝึกมาแล้ว (`cvd_model.pkl`)
 - **NumPy**  - จัดการข้อมูลตัวเลข
 - **Pandas**  - ใช้จัดการข้อมูล (ถ้าจำเป็น)
+- **XGBoost**, a powerful gradient boosting algorithm 
 
 ---
 ## 📂 โครงสร้างไฟล์โปรเจกต์
 
-![image](https://github.com/user-attachments/assets/63615981-e565-427e-a76f-3c8813350744)
+/project-root
+│
+├── pages/
+│   └── Result.py         # ไฟล์ที่อาจใช้แสดงผลลัพธ์
+│
+├── app.py                # ไฟล์หลักที่รันเว็บแอปพลิเคชัน
+├── model.pkl             # ไฟล์โมเดล Machine Learning ที่บันทึกไว้
+├── README.md             # คำอธิบายโปรเจกต์
+└── requirements.txt      # รายการไลบรารีที่ต้องติดตั้ง
 
 ---
 
 ## Libraly install Command
-pip install streamlit numpy joblib scikit-learn pandas
+pip install streamlit numpy joblib scikit-learn pandas xgboost
 
 ---
 
