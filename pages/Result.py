@@ -7,21 +7,7 @@ import json
 model = joblib.load("model.pkl")
  
 st.set_page_config(page_title="CVD Prediction Result", layout="centered")
-
-
-# Load Mock Data
-mock_input_path = os.path.join(os.path.dirname(__file__), "mock_input.json")
-if os.path.exists(mock_input_path):
-    with open(mock_input_path, "r") as file:
-        mock_input = json.load(file)
-else:
-    st.error(f"🚨 File '{mock_input_path}' not found! Please check the file path.")
-    st.stop()
-
-# Assign mock data if session state doesn't exist
-if "input_data" not in st.session_state:
-    st.session_state["input_data"] = list(mock_input.values())
-    
+   
  # Retrieve Input Data (Use session state or URL parameters)
 if "input_data" not in st.session_state:
     st.error("No input data found! Please go back and submit the form again.")
