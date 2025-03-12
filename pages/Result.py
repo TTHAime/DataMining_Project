@@ -4,8 +4,7 @@ import joblib
 import os
 import json
  # Load Model and Scaler
-model = joblib.load("cvd_model.pkl")
-scaler = joblib.load("cvd_scaler.pkl")
+model = joblib.load("model.pkl")
  
 st.set_page_config(page_title="CVD Prediction Result", layout="centered")
 
@@ -23,18 +22,17 @@ else:
 if "input_data" not in st.session_state:
     st.session_state["input_data"] = list(mock_input.values())
     
-#  # Retrieve Input Data (Use session state or URL parameters)
-# if "input_data" not in st.session_state:
-#     st.error("No input data found! Please go back and submit the form again.")
-#     st.stop()
+ # Retrieve Input Data (Use session state or URL parameters)
+if "input_data" not in st.session_state:
+    st.error("No input data found! Please go back and submit the form again.")
+    st.stop()
  
 input_data = st.session_state["input_data"]
  
- # Scale the Input Data
-input_data_scaled = scaler.transform(np.array([input_data]))
  
  # Predict
-prediction_proba = model.predict_proba(input_data_scaled)[0]
+input_data = np.array(input_data).reshape(1, -1)
+prediction_proba = model.predict_proba(input_data)[0]
 risk_percentage = prediction_proba[1] * 100
  
  # Display Result
@@ -55,6 +53,7 @@ st.markdown("""
           padding: 15px;
           font-size: 20px;
           box-shadow: 3px 3px 15px rgba(255, 0, 0, 0.3); 
+          text-align: center;
      }
      .stSuccess {
         background-color: white; 
@@ -70,18 +69,27 @@ st.markdown("""
      }
      
      .stExpander {
-    background: white !important;
-    color: black !important;
-    font-size: 20px;
-    border-radius: 15px !important;
-    padding: 15px !important;
-    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1) !important;
-    width: 450px; 
-    margin: auto; 
-    transition: max-height 0.4s ease-in-out; 
-    overflow: hidden;
+          background-color: #e6f7ff;
+          color: black;
+          font-size: 20px;
+          border: 2px solid #007acc;
+          border-radius: 12px;
+          padding: 15px;
+          box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
 }
-     
+     .input-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+    .input-item {
+        background-color: #f0f8ff;
+        border-radius: 8px;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
 
 
           
@@ -99,8 +107,8 @@ else:
 
 
 
+st.markdown("---")
 
- 
 st.markdown(f"📊 **Chance of Cardiovascular Disease:** {risk_percentage:.2f}%")
 
  # Show Explanation
@@ -108,6 +116,19 @@ with st.expander("📌 More Details"):
      st.write("This prediction is based on your provided health details.")
      st.write("**If you have a high risk, consider consulting a healthcare professional.**")
      
+     # Display Input Data in Detailed Format
+     st.markdown("### Input Data")
+     input_keys = ["General_Health", "Exercise", "Skin_Cancer", "Other_Cancer", "Depression",
+                    "Arthritis", "Age_Category", "Height_(cm)", "Weight_(kg)", "BMI",
+                    "Smoking_History", "Alcohol_Consumption", "Fruit_Consumption",
+                    "Green_Vegetables_Consumption", "FriedPotato_Consumption",
+                    "Sex_Female", "Sex_Male"]
+     input_details = dict(zip(input_keys, input_data[0]))
+    
+     st.markdown("<div class='input-grid'>", unsafe_allow_html=True)
+     for key, value in input_details.items():
+          st.markdown(f"<div class='input-item'><b>{key}:</b> {value}</div>", unsafe_allow_html=True)
+     st.markdown("</div>", unsafe_allow_html=True)
     
 
 
