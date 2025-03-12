@@ -22,15 +22,8 @@ https://datamining-g9.streamlit.app/
 ---
 ## 📂 โครงสร้างไฟล์โปรเจกต์
 
-/project-root
-│
-├── pages/
-│   └── Result.py         # ไฟล์ที่อาจใช้แสดงผลลัพธ์
-│
-├── app.py                # ไฟล์หลักที่รันเว็บแอปพลิเคชัน
-├── model.pkl             # ไฟล์โมเดล Machine Learning ที่บันทึกไว้
-├── README.md             # คำอธิบายโปรเจกต์
-└── requirements.txt      # รายการไลบรารีที่ต้องติดตั้ง
+![image](https://github.com/user-attachments/assets/85cdcb7e-6ad1-4915-aad9-790e90267727)
+
 
 ---
 
