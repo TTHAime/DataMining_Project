@@ -1,7 +1,7 @@
 # DataMining_Project
 
 # 🫀 CVD Prediction Web App
-https://datamining-g9.streamlit.app/
+https://dataminingproject-g9.streamlit.app/
 
 ### 🔍 ทำนายความเสี่ยงของโรคหัวใจและหลอดเลือดด้วย Machine Learning
 
