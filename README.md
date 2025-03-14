@@ -14,7 +14,7 @@ https://dataminingproject-g9.streamlit.app/
 - **Python 3.12.9**  - ภาษาโปรแกรมหลัก
 - **Streamlit**  - ใช้สร้างเว็บแอป
 - **Scikit-Learn**  - ใช้สำหรับโมเดล Machine Learning
-- **Joblib**  - โหลดโมเดลที่ถูกฝึกมาแล้ว (`cvd_model.pkl`)
+- **Joblib**  - โหลดโมเดลที่ถูกฝึกมาแล้ว (`model.pkl`)
 - **NumPy**  - จัดการข้อมูลตัวเลข
 - **Pandas**  - ใช้จัดการข้อมูล (ถ้าจำเป็น)
 - **XGBoost**, a powerful gradient boosting algorithm 
